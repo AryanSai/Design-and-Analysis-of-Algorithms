@@ -1,4 +1,7 @@
-a=[1,2,3,4,56,7,8,2,3]
+import random
+
+a = random.sample(range(0, 10000), 1000)
+print("The list of elements: ",a)
 negative_infinity = float('-inf')
 curr_largest=negative_infinity
 i=0
@@ -10,4 +13,4 @@ while i!=len(a):
     else:
         i = i + 1
 
-print(curr_largest)    
+print("The largest element",curr_largest)    
