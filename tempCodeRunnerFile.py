@@ -1,3 +1,2 @@
-def heapsort():
-
-
+medians=sorted(medians)
+    # print(medians)
