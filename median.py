@@ -50,35 +50,8 @@ def median11(a):
     new_list = [element for sublist in reduced_lists for element in sublist]
     print(new_list)   
 
-    median11(new_list)      
+    # median11(new_list)      
 
-
-# a = [
-#     11,
-#     35,
-#     53,
-#     76,
-#     52,
-#     6,
-#     48,
-#     3,
-#     95,
-#     39,
-#     60,
-#     64,
-#     85,
-#     41,
-#     22,
-#     58,
-#     30,
-#     29,
-#     70,
-#     84,
-#     54,
-#     2,
-#     4,
-#     10,
-# ]
 a = random.sample(range(0, 90), 12)
 print(a)
 print(sorted(a))

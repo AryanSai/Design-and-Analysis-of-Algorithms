@@ -1,4 +1,6 @@
+# heapify top down approach
 def heapify(a):
+    counter=0
     i = 1
     n = len(a)
     for i in range(1, n):
@@ -8,7 +10,18 @@ def heapify(a):
             a[child], a[parent] = a[parent], a[child]
             child = parent
             parent = (child - 1) // 2
+            counter+=1
+    print("Count = {}".format(counter))        
     return a
 
 
-print(heapify([2, 3, 1, 4, 6, 22]))
+# a = random.sample(range(0, 100000), 99999)
+a = []
+with open("random_numbers.txt", "r") as file:
+    numbers_list = file.read().split()
+    for number_str in numbers_list:
+        number = int(number_str)
+        a.append(number)
+# print(a)
+heapify(a)
+print('done')

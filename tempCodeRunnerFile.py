@@ -1,2 +1,1 @@
-medians=sorted(medians)
-    # print(medians)
+a = random.sample(range(0, 100), 25)
