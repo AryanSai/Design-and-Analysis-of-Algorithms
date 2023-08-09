@@ -26,12 +26,9 @@ def heapify(a):
     return a
 
 
-a = []
-with open("random_numbers.txt", "r") as file:
-    numbers_list = file.read().split()
-    for number_str in numbers_list:
-        number = int(number_str)
-        a.append(number)
-# print(a)
+# a = [8, 6, 4, 2, 0, 3, -2]
+a = random.sample(range(0, 20), 12)
+print(a)
 heapify(a)
-print('done')
+print(a)
+print("done")

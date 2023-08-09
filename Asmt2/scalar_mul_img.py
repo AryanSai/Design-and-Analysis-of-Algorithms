@@ -1,8 +1,6 @@
 import cv2
 import matplotlib.pyplot as plt
 
-
-
 im_path = input('Enter a file path: ')
 # im_path = '/content/Untitled design (1).png'
 im = cv2.imread(im_path)
@@ -17,6 +15,7 @@ for i in range(1,256):
 scalar_multiples=sorted(scalar_multiples)
 
 plt.subplot(121)
+plt.title('Image')
 plt.imshow(im, cmap = 'gray')
 plt.axis('off')
 
@@ -25,5 +24,6 @@ for i in range(height):
       im[i][j]=scalar_multiples[im[i][j]]
 
 plt.subplot(122)
+plt.title('Scalar Multiplied Image')
 plt.imshow(im, cmap = 'gray')
 plt.axis('off') # turn off the axis
