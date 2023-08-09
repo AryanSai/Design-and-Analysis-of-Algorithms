@@ -1,8 +1,6 @@
 import random
 
 def median11(a):
-    if len(a)==2:
-        return a[0]
 
     # divide the list into sublists
     sublists = [a[j : j + 5] for j in range(0, len(a), 5)]

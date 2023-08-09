@@ -1,1 +1,2 @@
-a = random.sample(range(0, 100), 25)
+low = [j for j in a if j < median]
+    high = [j for j in a if j > median]

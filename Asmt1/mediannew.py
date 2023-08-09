@@ -15,10 +15,8 @@ def median_of_5(a):
     else:
         return sorted_a[0]
 
-
 def median11(a):
     n = len(a)
-    
 
     # divide the list into sublists
     sublists = [a[j : j + 5] for j in range(0, n, 5)]
@@ -70,8 +68,6 @@ def median11(a):
 
 # Test the function
 a = random.sample(range(0, 100), 25)
-# a=[2,5,1,8,23,34,45,12,9,7,3,4,11,49,10,16]
-a=[61, 18, 51, 98, 29, 48, 22, 93, 20, 24, 87, 97, 14, 92, 73, 82, 27, 23, 91, 3, 2, 64, 0, 13, 53]
 print("Input array:", a)
 print("Sorted array:", sorted(a))
 median_value = median11(a)
