@@ -1,57 +1,62 @@
 import random
 
-def median11(a):
 
-    # divide the list into sublists
+def median_of_5(a):
+    n = len(a)
+    if n == 5:
+        return a[2]
+    elif n == 4:
+        return a[1]
+    elif n == 3:
+        return a[1]
+    elif n == 2:
+        return a[0]
+    else:
+        return a[0]
+
+
+def select(a, i):
+    # divide a into sublists of len 5
     sublists = [a[j : j + 5] for j in range(0, len(a), 5)]
-    print(sublists)
-
-    # sort the sublists
-    sublists = [sorted(i) for i in sublists]
-    print(sublists)
+    # print(sublists)
 
     # find medians of sublists
-    medians = []
-    for i in sublists:
-        if len(i) == 5:
-            medians.append(i[2])
-        elif len(i) == 4:
-            medians.append(i[1])
-        elif len(i) == 3:
-            medians.append(i[2])
-        elif len(i) == 2:
-            medians.append(i[0])
-        else:
-            medians.append(i[0])
-    print(medians)
+    medians = [median_of_5(sorted(sublist)) for sublist in sublists]
+    # print(medians)
 
-    # swapping
-    zipped_lists = list(zip(medians, sublists))
-    sorted_median_lists = sorted(zipped_lists, key=lambda x: x[0])
-    swapped_lists = [sublist for median, sublist in sorted_median_lists]
-    print(swapped_lists)
+    if len(medians) <= 5:  # base case
+        median = sorted(medians)[len(medians) / 2]
+    else:  # call itself recursively
+        median = select(medians, len(medians) / 2)
 
-    #reduce and conquer
-    medians=sorted(medians)
-    print("hello",medians)
+    # partitioning step
+    low = [j for j in a if j < median]
+    high = [j for j in a if j > median]
 
-    median11(medians)
+    k = len(low)
+    if i < k:
+        return select(low, i)
+    elif i > k:
+        return select(high, i - k - 1)
+    else:  # median = k
+        return median
 
-    combined_lists = list(zip(medians, swapped_lists))
-    reduced_lists = [
-        [elt for elt in sublist if elt > median]
-        for median, sublist in combined_lists
-    ]
-    print(reduced_lists)    
 
-    #create a new list by merging all the sublists 
-    new_list = [element for sublist in reduced_lists for element in sublist]
-    print(new_list)   
+def main():
+    a = random.sample(range(0, 1000), 1)
+    print("Input Array: {}".format(a))
+    
+    if len(a) == 0:
+        print("Empty List!!")
+    elif len(a) == 1:
+        print("\nCalculated Median: {} \n".format(a[0]))
+    else:
+        sorted_array = sorted(a)
 
-    # median11(new_list)      
+        print("\nReal Median: {}".format(sorted_array[len(sorted_array) // 2]))
 
-a = random.sample(range(0, 90), 12)
-print(a)
-print(sorted(a))
+        median = select(a, len(a) // 2)
+        print("\nCalculated Median: {}".format(median))
 
-median11 = median11(a)
+
+main()
