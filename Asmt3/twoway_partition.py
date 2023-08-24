@@ -23,3 +23,4 @@ def partition(arr):
 arr = random.sample(range(0, 100), 10)
 print(arr)
 print(partition(arr))
+
