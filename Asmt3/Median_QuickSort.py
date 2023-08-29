@@ -3,7 +3,7 @@ import random
 
 def median(l):
     l = sorted(l)
-    print(l[1])
+    # print(l[1])
     return l[1]
 
 
@@ -23,7 +23,7 @@ def partition(arr):
             j = j - 1
     else:  # i>j
         arr[ind], arr[i - 1] = arr[i - 1], arr[ind]
-    # print(arr)    
+    # print(arr)
     return i - 1
 
 

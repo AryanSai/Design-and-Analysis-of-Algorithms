@@ -2,12 +2,14 @@ import random
 
 
 def bruteforce_second_largest(a):
-    if len(a) == 1:
+    if len(a) == 0: # exception case
+        largest, sec_largest = float("-inf"), float("-inf")
+    elif len(a) == 1: #boundary case
         largest, sec_largest = a[0], a[0]
-    elif len(a) == 2:
+    elif len(a) == 2: # base case
         largest = max(a[0], a[1])
         sec_largest = min(a[0], a[1])
-    else:
+    else:    # normal case
         # true largest and sec_largest
         b = list(set(a))
         b.sort()
@@ -17,6 +19,7 @@ def bruteforce_second_largest(a):
             )
         )
 
+        #calculating the largest and second largest
         largest = 0
         sec_largest = float("-inf")
         i = 0
@@ -30,7 +33,7 @@ def bruteforce_second_largest(a):
     return largest, sec_largest
 
 
-a = random.sample(range(0, 10000), 1)
+a = random.sample(range(0, 10000), 3)
 print("The list of elements: {}".format(a))
 
 # from the function

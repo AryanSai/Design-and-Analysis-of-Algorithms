@@ -3,7 +3,17 @@ import random
 
 
 def heapify(a):
+    if a == sorted(a):  # exception case when the passed array is already sorted
+        return a
+
     n = len(a)
+
+    if n <= 1 or all(
+        x == a[0] for x in a
+    ):  # boundary case and check if all elements are the same
+        return a
+
+    # normal case
     i = n // 2
     counter = 0
     for i in range(len(a) // 2, -1, -1):
@@ -22,13 +32,12 @@ def heapify(a):
             else:
                 break
             counter += 1
-    print("Count = {}".format(counter))
+    # print("Count = {}".format(counter))
     return a
 
 
-# a = [8, 6, 4, 2, 0, 3, -2]
-a = random.sample(range(0, 20), 12)
-print(a)
-heapify(a)
-print(a)
-print("done")
+a = random.sample(range(0, 200), 3)
+# a = [1, 2, 3]
+print("The input array is {}".format(a))
+heap_a = heapify(a)
+print("The array after heapify: {}".format(heap_a))

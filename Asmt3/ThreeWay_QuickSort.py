@@ -3,8 +3,8 @@ import random
 
 def partition(arr):  # three way partition
     n = len(arr)
-    x = arr[0]
-    i, j, k = 0, 1, n - 1
+    x = arr[0]  # picking the first element as the pivot
+    i, j, k = 0, 1, n - 1 # indices for the ? section
     while j <= k:
         if arr[j] < x:
             arr[i], arr[j] = arr[j], arr[i]
@@ -28,6 +28,5 @@ def quicksort(arr):
 
 
 arr = [random.randint(0, 100) for _ in range(13)]
-print(arr)
-print(quicksort(arr))
-print(arr)
+print("Input Array: {}".format(arr))
+print("Sorted Array: {}".format(quicksort(arr)))

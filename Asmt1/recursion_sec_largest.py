@@ -19,8 +19,8 @@ def find_second_largest(a):
         return maxi, second_max
 
 
-a = [5, 2, 8, 10, 1, 6, 12, 13]
-# a = random.sample(range(0, 100), 10)
+# a = [5, 2, 8, 10, 1, 6, 12, 13]
+a = random.sample(range(0, 100), 10)
 print(a)
 largest, second_largest = find_second_largest(a)
 print("The largest element is {}!".format(largest))

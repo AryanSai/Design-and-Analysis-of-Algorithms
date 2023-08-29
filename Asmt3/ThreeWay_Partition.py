@@ -1,10 +1,9 @@
 import random
 
-
 def partition(arr):
     n = len(arr)
-    x = arr[0]
-    i, j, k = 0, 1, n - 1
+    x = arr[0]  # picking the first element as the pivot
+    i, j, k = 0, 1, n - 1  # indices for the ? section
     while j <= k:
         if arr[j] < x:
             arr[i], arr[j] = arr[j], arr[i]
@@ -17,8 +16,6 @@ def partition(arr):
             k = k - 1
     return arr
 
-
-arr = [3, 5, 3, 5, 7, 8, 5, 2, 4, 1]
-# arr = random.sample(range(0, 100), 10)
-print(arr)
-print(partition(arr))
+arr = [random.randint(0, 100) for _ in range(20)]
+print("Input Array: {}".format(arr))
+print("Threeway Partitioned Array: {}".format(partition(arr)))

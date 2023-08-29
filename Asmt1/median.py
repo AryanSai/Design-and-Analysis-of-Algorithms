@@ -1,7 +1,7 @@
 import random
 
 
-def median_of_5(a):
+def median_of_5(a):  # median function
     n = len(a)
     if n == 5:
         return a[2]
@@ -16,12 +16,13 @@ def median_of_5(a):
 
 
 def select(a, i):
-    
-    # divide a into sublists of len 5
+
+    # divide 'a' into sublists of len 5
     sublists = [a[j : j + 5] for j in range(0, len(a), 5)]
     # print(sublists)
 
     # find medians of sublists
+    # medians = [sorted(sublist)[len(sublist) / 2] for sublist in sublists]
     medians = [median_of_5(sorted(sublist)) for sublist in sublists]
     # print(medians)
 
@@ -46,16 +47,16 @@ def select(a, i):
 def main():
     a = random.sample(range(0, 1000), 200)
     print("Input Array: {}".format(a))
-    
+    print("\nSorted input array: {}".format(sorted(a)))
+
     if len(a) == 0:
         print("Empty List!!")
-    elif len(a) == 1:
-        print("\nCalculated Median: {} \n".format(a[0]))
-    else:
+    elif len(a) <= 140:  # for list of length less than 140, bruteforce is good enough
         sorted_array = sorted(a)
-
+        print("\nMedian: {}".format(sorted_array[len(sorted_array) // 2]))
+    else:  # for list of length more than 140, we use the select algorithm
+        sorted_array = sorted(a)
         print("\nReal Median: {}".format(sorted_array[len(sorted_array) // 2]))
-
         median = select(a, len(a) // 2)
         print("\nCalculated Median: {}".format(median))
 

@@ -4,7 +4,7 @@ import random
 def partition(arr):
     n = len(arr)
     if n > 0:
-        x = arr[0]
+        x = arr[0] # picking the first element as the pivot
         i, j = 1, n - 1
         while i <= j:
             if arr[i] <= x:
@@ -31,7 +31,6 @@ def quicksort(arr):
     return arr
 
 
-# arr = [7, 5, 12, 9, 2, 1, 4]
-arr = random.sample(range(0, 100), 10)
+arr = [random.randint(0, 100) for _ in range(20)]
 print("Input Array: {}".format(arr))
 print("Sorted Array: {}".format(quicksort(arr)))
