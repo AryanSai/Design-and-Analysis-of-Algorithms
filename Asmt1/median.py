@@ -16,6 +16,7 @@ def median_of_5(a):
 
 
 def select(a, i):
+    
     # divide a into sublists of len 5
     sublists = [a[j : j + 5] for j in range(0, len(a), 5)]
     # print(sublists)
@@ -43,7 +44,7 @@ def select(a, i):
 
 
 def main():
-    a = random.sample(range(0, 1000), 1)
+    a = random.sample(range(0, 1000), 200)
     print("Input Array: {}".format(a))
     
     if len(a) == 0:
