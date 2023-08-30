@@ -45,11 +45,13 @@ def KMPSearch(text, pattern):
 
 def main():
     text_file = open(
-        "/home/dmacs/Desktop/MTech/101P/String Matching/Dictionary.txt", "r"
+        "/home/dmacs/Desktop/MTech/101P/Asmt4/Dictionary.txt", "r"
     )
     text = text_file.read()
     pattern = "apple"
     KMPSearch(text, pattern)
+    # KMPSearch("abcabc", "abc")
+
     text_file.close()
 
 
