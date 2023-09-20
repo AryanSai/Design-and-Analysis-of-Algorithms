@@ -44,21 +44,27 @@ def select(a, i):
         return median
 
 
-def main():
-    a = random.sample(range(0, 1000), 200)
-    print("Input Array: {}".format(a))
-    print("\nSorted input array: {}".format(sorted(a)))
-
+def median(a):
     if len(a) == 0:
         print("Empty List!!")
     elif len(a) <= 140:  # for list of length less than 140, bruteforce is good enough
         sorted_array = sorted(a)
-        print("\nMedian: {}".format(sorted_array[len(sorted_array) // 2]))
+        print("\nSorted input array: {}".format(sorted_array))
+        middle_index = len(sorted_array) // 2
+        median = sorted_array[middle_index - 1] if len(sorted_array) % 2 == 0 else sorted_array[middle_index]
+        
+        print("\nMedian: {}".format(median))
     else:  # for list of length more than 140, we use the select algorithm
         sorted_array = sorted(a)
         print("\nReal Median: {}".format(sorted_array[len(sorted_array) // 2]))
         median = select(a, len(a) // 2)
         print("\nCalculated Median: {}".format(median))
+
+
+def main():
+    a = random.sample(range(0, 1000), 200)
+    print("Input Array: {}".format(a))
+    median(a)
 
 
 main()
