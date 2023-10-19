@@ -127,7 +127,6 @@ class LinkedList:
 
 # create a new linked list
 llist = LinkedList()
-
 # add nodes to the linked list
 llist.insertAtEnd("a")
 llist.insertAtEnd("b")
@@ -146,7 +145,6 @@ print("Remove Last Node")
 llist.remove_last_node()
 print("Remove Node at Index 1")
 llist.remove_at_index(1)
-
 
 # print the linked list again
 print("\nLinked list after removing a node:")
